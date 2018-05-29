@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "work"
+    label: "Prace"
+    folder: "src/content/work"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Tytuł", name: "title", widget: "string"}
+      - {label: "Obrazek", name: "thumbnail", widget: "image"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "src/content/landing_page/landing_page.md"
+        label: "Strona główna"
+        name: "landing"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
+      - file: "src/content/about_page/about_page.md"
+        label: "O mnie"
+        name: "about"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
+          - {label: "Title", name: "title", widget: "string"}
+          - {label: "Body", name: "body", widget: "markdown"}
